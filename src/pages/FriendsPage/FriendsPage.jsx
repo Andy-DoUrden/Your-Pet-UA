@@ -16,7 +16,7 @@ function FriendsPage() {
           <NoNoticesFoundIcon>
             <use href={sprite + '#iconPaw'} />
           </NoNoticesFoundIcon>{' '}
-          Our friends{' '}
+          Наші друзі{' '}
           <NoNoticesFoundIcon>
             <use href={sprite + '#iconPaw'} />
           </NoNoticesFoundIcon>

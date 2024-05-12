@@ -19,7 +19,7 @@ export const AuthNav = ({ isModalOpen, onClose }) => {
                 onClose(false);
               }}
             >
-              Зайти
+              Увійти
               <IconLogin>
                 <use href={sprite + '#iconPaw'}></use>
               </IconLogin>

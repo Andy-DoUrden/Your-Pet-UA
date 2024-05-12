@@ -66,7 +66,7 @@ const NoticesPage = () => {
   return (
     <Container>
       <NoticesContainer>
-        <PageTitle>Find your favorite pet</PageTitle>
+        <PageTitle>Знайдіть собі улюбленця</PageTitle>
         <div>
           <NoticesSearch onSubmit={handleSearchSubmit} />
         </div>
@@ -82,7 +82,7 @@ const NoticesPage = () => {
             </FilterAndAddContainer>
           </div>
         </FilterContainer>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<p>Завантаження...</p>}>
           <Outlet />
         </Suspense>
       </NoticesContainer>

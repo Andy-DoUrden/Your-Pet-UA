@@ -21,7 +21,7 @@ export const ModalAuthNav = ({ onClose }) => {
         }}
       >
         <LogLink to="/login">
-          Log In
+          Увійти
           <IconLogin>
             <use href={sprite + '#iconPaw'}></use>
           </IconLogin>
@@ -33,7 +33,7 @@ export const ModalAuthNav = ({ onClose }) => {
           handleClick();
         }}
       >
-        <RegLink to="/register">Registration</RegLink>
+        <RegLink to="/register">Зареєструватись</RegLink>
       </RegisterStyled>
     </AuthNavStyled>
   );

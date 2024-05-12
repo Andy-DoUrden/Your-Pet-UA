@@ -13,14 +13,14 @@ function NewsPage() {
 
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
-    [searchParams]
+    [searchParams],
   );
 
   const resetPage = useCallback(() => {
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams]);
 
-  const handleSubmit = query => {
+  const handleSubmit = (query) => {
     if (query) {
       setSearchValue({ query });
     } else {
@@ -32,13 +32,7 @@ function NewsPage() {
     setSearchParams({
       ...searchValue,
     });
-  }, [
-    params,
-    setSearchParams,
-    searchValue,
-    searchParams
-  ]);
-
+  }, [params, setSearchParams, searchValue, searchParams]);
 
   const handleClear = () => {
     searchParams.delete('query', query);
@@ -48,7 +42,7 @@ function NewsPage() {
 
   return (
     <Container>
-      <PageTitle>News</PageTitle>
+      <PageTitle>Новини</PageTitle>
       <NoticesSearch onSubmit={handleSubmit} onClear={handleClear} />
       <NewsList />
     </Container>

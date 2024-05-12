@@ -35,7 +35,7 @@ const NoticesSearch = ({ onSubmit }) => {
         required
         value={searchQuery}
         onChange={(e) => handleChange(e)}
-        placeholder="Search"
+        placeholder="Пошук"
       />
 
       <SearchSubmitIcon

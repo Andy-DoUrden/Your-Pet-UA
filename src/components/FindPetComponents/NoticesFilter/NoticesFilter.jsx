@@ -67,7 +67,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
     <div>
       <FilterButton id="filterBtn" type="button" onClick={handleBtnClick}>
         <FilterButtonText>
-          <FilterText>Filter</FilterText>
+          <FilterText>Фільтри</FilterText>
           <StyledFilterIcon>
             <use href={sprite + '#iconFilters3'}></use>
           </StyledFilterIcon>
@@ -76,7 +76,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
 
       {isOpen && (
         <DropContainer id="filtersMenu" active={true} ref={dropdownRef}>
-          <FilterHeader>Filters</FilterHeader>
+          <FilterHeader>Фільтри</FilterHeader>
           <FilterMenu active={ageOpen ? true : undefined}>
             <FilterBtn
               type="button"
@@ -86,7 +86,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
               <StyledChevronDownIcon active={ageOpen ? true : undefined}>
                 <use href={sprite + '#iconChevronDown'}></use>
               </StyledChevronDownIcon>
-              By age
+              По віку
             </FilterBtn>
             {ageOpen && (
               <FilterForm>
@@ -103,7 +103,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     name="to1"
                     checked={checkboxValue.to1}
                   />
-                  up to 1 year
+                  до одного року
                 </FormLabel>
                 <FormLabel>
                   <StyledCheckboxIcon check={checkboxValue.to2}>
@@ -118,7 +118,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     name="to2"
                     checked={[checkboxValue.to2, isChecked]}
                   />
-                  up to 2 years
+                  до двох років
                 </FormLabel>
                 <FormLabel>
                   <StyledCheckboxIcon check={checkboxValue.from2}>
@@ -133,7 +133,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     name="from2"
                     checked={[checkboxValue.from2, isChecked]}
                   />
-                  from 2 years
+                  від двох років
                 </FormLabel>
               </FilterForm>
             )}
@@ -147,7 +147,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
               <StyledChevronDownIcon active={genderOpen ? true : undefined}>
                 <use href={sprite + '#iconChevronDown'}></use>
               </StyledChevronDownIcon>
-              By gender
+              По статі
             </FilterBtn>
             {genderOpen && (
               <FilterForm>
@@ -164,7 +164,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     name="male"
                     checked={checkboxValue.male}
                   />
-                  male
+                  чоловіча
                 </FormLabel>
                 <FormLabel>
                   <StyledCheckboxIcon check={checkboxValue.female}>
@@ -179,7 +179,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     name="female"
                     checked={checkboxValue.female}
                   />
-                  female
+                  жіноча
                 </FormLabel>
               </FilterForm>
             )}

@@ -73,24 +73,24 @@ export const ModalBurger = ({ onClose, isModalOpen }) => {
           <NavList>
             <li>
               <StyledNavLink to="/news" onClick={() => onClose(false)}>
-                News
+                Новини
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink to="/notices/sell" onClick={() => onClose(false)}>
-                Find pet
+                Пошук
               </StyledNavLink>
             </li>
             <li>
               <StyledNavLink to="/friends" onClick={() => onClose(false)}>
-                Our friends
+                Наші друзі
               </StyledNavLink>
             </li>
           </NavList>
           {token ? (
             <ButtonContainer>
               <LogoutButton onClick={() => handleLogout()}>
-                log out
+                Вийти
                 <IconLogOut>
                   <use href={sprite + '#iconLogout'}></use>
                 </IconLogOut>

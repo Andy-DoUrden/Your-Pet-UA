@@ -78,13 +78,13 @@ const Login = () => {
     <SectionLogin>
       <Container>
         <Form onSubmit={formik.handleSubmit}>
-          <Title>Login</Title>
+          <Title>Увійти</Title>
           <EmailValidation>
             <Email
               id="email"
               name="email"
               type="text"
-              placeholder="Email"
+              placeholder="Імейл"
               onChange={formik.handleChange}
               value={formik.values.email}
               className={`${
@@ -116,7 +116,7 @@ const Login = () => {
               id="password"
               name="password"
               type={formik.values.showPassword ? 'text' : 'password'}
-              placeholder="Password"
+              placeholder="Пароль"
               onChange={formik.handleChange}
               value={formik.values.password}
               className={`${
@@ -149,9 +149,9 @@ const Login = () => {
               <Validation>{formik.errors.password}</Validation>
             ) : null}
           </PasswordValidation>
-          <Button type="submit">Login</Button>
+          <Button type="submit">Увійти</Button>
           <Text>
-            Dont have an account? <Link to="/register">Register</Link>
+            Немає акаунту? <Link to="/register">Зареєструватись</Link>
           </Text>
         </Form>
       </Container>

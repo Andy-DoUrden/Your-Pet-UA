@@ -149,7 +149,7 @@ const NoticeItem = ({
       </TopPart>
       <ItemTitle>{title}</ItemTitle>
       <ItemLearnMoreBtn onClick={handleLearnMoreClick}>
-        Learn more
+        Детальніше
         <ItemLearnMoreBtnIcon>
           <use href={sprite + '#iconPaw'} />
         </ItemLearnMoreBtnIcon>

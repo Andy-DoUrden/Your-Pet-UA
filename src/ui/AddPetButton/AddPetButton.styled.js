@@ -38,7 +38,7 @@ export const AddButton = styled.button`
   }
   @media screen and (min-width: 768px) {
     position: relative;
-    width: 129px;
+    width: 240px;
     height: 40px;
     border-radius: 40px;
     padding: 9px 16px;
@@ -69,6 +69,7 @@ export const StyledPlusIconSmall = styled.svg`
 `;
 
 export const AddButtonText = styled.span`
+  display: none;
   font-family: Manrope;
   font-size: 12px;
   font-weight: 600;
@@ -78,6 +79,7 @@ export const AddButtonText = styled.span`
   z-index: 2;
 
   @media screen and (min-width: 768px) {
+    display: block;
     font-family: Manrope;
     font-size: 16px;
     font-weight: 700;

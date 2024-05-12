@@ -13,7 +13,7 @@ const AttentionBtns = () => {
     <AuthNavStyled>
       <LoginStyled>
         <LogLink to="/login">
-          Log IN
+          Увійти
           <IconLogin>
             <use href={sprite + '#iconPaw'}></use>
           </IconLogin>
@@ -21,7 +21,7 @@ const AttentionBtns = () => {
       </LoginStyled>
 
       <RegisterStyled>
-        <RegLink to="/register">Registration</RegLink>
+        <RegLink to="/register">Зареєструватись</RegLink>
       </RegisterStyled>
     </AuthNavStyled>
   );

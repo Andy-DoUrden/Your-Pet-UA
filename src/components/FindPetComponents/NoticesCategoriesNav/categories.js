@@ -1,33 +1,33 @@
 import { nanoid } from 'nanoid';
 
- const publicCategories = [
+const publicCategories = [
   {
     id: nanoid(),
     to: '/notices/sell',
-    text: 'sell',
+    text: 'продаж',
   },
   {
     id: nanoid(),
     to: '/notices/lost-found',
-    text: 'lost/found',
+    text: 'загубив(ла)/знайшов(ла)',
   },
   {
     id: nanoid(),
     to: '/notices/in-good-hands',
-    text: 'in good hands',
+    text: 'в холоші руки',
   },
 ];
 
- const userCategories = [
+const userCategories = [
   {
     id: nanoid(),
     to: '/notices/favorite',
-    text: 'favorite ads',
+    text: 'улюблені',
   },
   {
     id: nanoid(),
     to: '/notices/my-ads',
-    text: 'my ads',
+    text: 'мої',
   },
 ];
 const categories = { publicCategories, userCategories };

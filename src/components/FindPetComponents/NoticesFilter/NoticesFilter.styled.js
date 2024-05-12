@@ -156,7 +156,7 @@ export const FilterBtn = styled.button`
   color: var(--clr-brand-blue);
   transition: 300ms;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0px;
@@ -177,7 +177,7 @@ export const FormLabel = styled.label`
   gap: 6px;
   color: #54adff;
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0px;

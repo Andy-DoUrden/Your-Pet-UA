@@ -51,27 +51,27 @@ const LearnMoreModalWrapper = ({
             <LearnMoreTitle>{data.notice.title}</LearnMoreTitle>
 
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Name:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>{"Ім'я"}:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.name}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Birthday:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>День народження:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.date}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Type:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Порода:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.type}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Place:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Локація:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.location}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>The sex:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Стать:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.sex}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Email:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Імейл:</LearnMoreDataLeft>
               <LearnMoreDataLink
                 href={`mailto:${data.owner && data.owner.email}`}
               >
@@ -79,20 +79,20 @@ const LearnMoreModalWrapper = ({
               </LearnMoreDataLink>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Phone:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Телефон:</LearnMoreDataLeft>
               <LearnMoreDataLink href={`tel:${data.owner && data.owner.phone}`}>
                 {data.owner && data.owner.phone}
               </LearnMoreDataLink>
             </LearnMoreDataItem>
           </LearnMoreDataWrapper>
-          <LearnMoreComment>Comments: {data.notice.comments}</LearnMoreComment>
+          <LearnMoreComment>Коментар: {data.notice.comments}</LearnMoreComment>
           <LearnMoreBtsWrapper>
             <LearnMoreContactBtn href={`tel:${data.owner && data.owner.phone}`}>
-              <LearnMoreContactBtnText>Contact</LearnMoreContactBtnText>
+              <LearnMoreContactBtnText>Звязатись</LearnMoreContactBtnText>
             </LearnMoreContactBtn>
             <LearnMoreAddFvrtBtn onClick={handleFavoriteClick}>
               <LearnMoreAddFvrtBtnText>
-                Add to
+                Додати:
                 <LearnMoreAddFvrtBtnIcon isFavorite={isFavorite}>
                   <use href={sprite + '#iconHeart'} />
                 </LearnMoreAddFvrtBtnIcon>

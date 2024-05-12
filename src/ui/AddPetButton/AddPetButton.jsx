@@ -36,7 +36,7 @@ const AddPetButton = () => {
         <StyledPlusIcon>
           <use href={sprite + '#iconPlus'}></use>
         </StyledPlusIcon>
-        <AddButtonText>Add Pet</AddButtonText>
+        <AddButtonText>Добавити улюбленця</AddButtonText>
         <StyledPlusIconSmall>
           <use href={sprite + '#iconPlusSmall'}></use>
         </StyledPlusIconSmall>

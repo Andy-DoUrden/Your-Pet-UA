@@ -57,7 +57,7 @@ export const RegisterStyled = styled.li`
   }
 
   @media (${MEDIA_TABLET}) {
-    width: 142px;
+    width: 180px;
   }
 `;
 

@@ -17,12 +17,12 @@ const AttentionModalWrapper = ({ setShowModal, sprite }) => {
       >
         <use href={sprite + '#iconCross'} />
       </AttentionIcon>
-      <AttentionTitle>Attention</AttentionTitle>
+      <AttentionTitle>Увага</AttentionTitle>
       <AttentionText>
-        We would like to remind you that certain functionality is available only
-        to authorized users.If you have an account, please log in with your
-        credentials. If you do not already have an account, you must register to
-        access these features.
+        Нагадуємо, що певні функції доступні лише авторизованим користувачам.
+        Якщо у вас є обліковий запис, увійдіть, використовуючи свої облікові
+        дані. Якщо у вас ще немає облікового запису, ви повинні зареєструватися,
+        щоб отримати доступ до цих функцій.
       </AttentionText>
       <AttentionBtns />
     </AttentionWrapper>
