@@ -140,7 +140,7 @@ const NoticeItem = ({
             <ItemDataIcon>
               <use
                 href={
-                  sex === 'male' ? sprite + '#iconMale' : sprite + '#iconFemale'
+                  sex === 'Ч' ? sprite + '#iconMale' : sprite + '#iconFemale'
                 }
               />
             </ItemDataIcon>
