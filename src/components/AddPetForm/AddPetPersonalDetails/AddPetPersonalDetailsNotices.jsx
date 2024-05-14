@@ -14,22 +14,32 @@ import {
 
 const schema = object({
   title: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Title must be at least 2 characters')
-    .max(50, 'Title must be at most 50 characters')
-    .required('Enter a title for add'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Допустимі тільки Українські символи',
+    )
+    .min(2, 'Заголовок повинен містити від 2 символів')
+    .max(20, 'Заголовок повинен містити до 20 символів')
+    .required('Введіть заголовок'),
   name: string()
-    .min(2, 'Name must be at least 2 characters')
-    .max(16, 'Name must be at most 16 characters')
-    .required('Enter a name pet'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Допустимі тільки Українські символи',
+    )
+    .min(2, "Ім'я повинне містити від 2 символів")
+    .max(16, "Ім'я повинне містити до 16 символів")
+    .required("Введіть ім'я"),
   date: date()
-    .required('Enter a date of birth')
-    .max(new Date(), 'Date cannot be in the future'),
+    .required('Введіть дату народження')
+    .max(new Date(), 'Дата народження не може бути у майбутньому'),
   type: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Type must be at least 2 characters')
-    .max(16, 'Type must be at most 16 characters')
-    .required('Enter a type of pet'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Допустимі тільки Українські символи',
+    )
+    .min(2, 'Порода повинна містити від 2 символів')
+    .max(16, 'Порода повинна містити до 16 символів')
+    .required('Введіть породу'),
 });
 
 const AddPetPersonalDetailsNotices = (props) => {
@@ -47,11 +57,11 @@ const AddPetPersonalDetailsNotices = (props) => {
         <Form>
           <InputList>
             <label>
-              Title of Ad
+              Заголовок
               <Field
                 type="text"
                 name="title"
-                placeholder="Title of ad"
+                placeholder="Заголовок"
                 className={`${
                   touched.title && errors.title ? 'is-invalid' : ''
                 }`}
@@ -59,7 +69,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="title" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Pet’s name
+              {"Ім'я"}
               <Field
                 type="text"
                 name="name"
@@ -69,21 +79,21 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of birth
+              Дата народження
               <Field
                 name="date"
                 type="date"
-                placeholder="Type date of birth"
+                placeholder="Вкажіть дату народження"
                 className={`${touched.date && errors.date ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="date" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Type
+              Порода
               <Field
                 type="text"
                 name="type"
-                placeholder="Type of pet"
+                placeholder="Вкажіть породу"
                 className={`${touched.type && errors.type ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
@@ -92,7 +102,7 @@ const AddPetPersonalDetailsNotices = (props) => {
 
           <ButtonContainer>
             <ButtonNextBack className="buttonNext" type="submit">
-              Next
+              Далі
               <IconPaw>
                 <use href={sprite + '#iconPaw'}></use>
               </IconPaw>
@@ -105,7 +115,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <IconArrow>
                 <use href={sprite + '#iconArrowLeft'}></use>
               </IconArrow>
-              Back
+              Назад
             </ButtonNextBack>
           </ButtonContainer>
         </Form>

@@ -247,13 +247,13 @@ const AddPetForm = () => {
   const getTitle = () => {
     switch (formData.category) {
       case 'your-pet':
-        return 'Add pet';
+        return 'Додати власного улюбленця';
       case 'sell':
-        return 'Add pet for sale';
+        return 'На продаж';
       case 'lost-found':
-        return 'Add lost pet';
+        return 'Загубив(ла)/знайшов(ла) улюбленця';
       case 'in-good-hands':
-        return 'In good hands';
+        return 'В хороші руки';
       default:
         return 'Add pet';
     }
@@ -265,11 +265,11 @@ const AddPetForm = () => {
         <Container>
           <FormStyled className={isTitleCentered ? 'centered' : ''}>
             <Title className={isTitleCentered ? 'centered' : ''}>
-              {step === 0 ? 'Add pet' : getTitle()}
+              {step === 0 ? 'Додати улюбленця' : getTitle()}
             </Title>
             <StepList>
               <li className={step === 0 ? 'is-selected' : 'is-done'}>
-                Choose option{' '}
+                Категорія{' '}
               </li>
               <li
                 className={
@@ -280,14 +280,14 @@ const AddPetForm = () => {
                     : 'is-done'
                 }
               >
-                Personal details
+                Деталі анкети
               </li>
               <li
                 className={
                   step === 2 || step === 4 || step === 5 ? 'is-selected' : ''
                 }
               >
-                More info
+                Додатково
               </li>
             </StepList>
             {steps[step]}

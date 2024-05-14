@@ -1,12 +1,11 @@
-
-import { EmptyPetsText } from "./EmptyPetsList.styled";
+import { EmptyPetsText } from './EmptyPetsList.styled';
 
 export const EmptyPetsList = () => {
   return (
     <>
       <EmptyPetsText>
-        You have not added your pets, if you want to add them, click on the
-        button &#34;Add pet&#34;
+        Ви не додали своїх домашніх тварин, якщо ви хочете їх додати, натисніть
+        на кнопку &#34;Додати +&#34;
       </EmptyPetsText>
     </>
   );

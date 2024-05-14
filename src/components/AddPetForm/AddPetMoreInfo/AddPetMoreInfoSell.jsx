@@ -30,19 +30,22 @@ import {
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
-  sex: string().required('Select a sex'),
+  sex: string().required('Вкажіть стать'),
   location: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Location must be at least 2 characters')
-    .required('Enter a location'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Використовуйте тільки українські літери',
+    )
+    .min(2, 'Назва міста має містити від 2 символів')
+    .required('Вкажіть місто'),
   price: number()
-    .typeError('Type a valid number')
-    .required('Enter a price')
-    .min(0.01, 'Price must be more than 0'),
+    .typeError('Вкажіть валідне число')
+    .required('Вкажіть ціну')
+    .min(0.01, 'Ціна має бути більше 0'),
   comments: string()
-    .min(2, 'Comments must be at least 2 characters')
-    .max(120, 'Comments must not exceed 120 characters')
-    .required('Enter a comment'),
+    .min(2, 'Коментар повинен містити від 2 символів')
+    .max(120, 'Коментар повинен містити до 120 символів')
+    .required('Введіть коментар'),
 });
 
 const AddPetMoreInfoSell = (props) => {
@@ -60,7 +63,10 @@ const AddPetMoreInfoSell = (props) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const maxSize = 3 * 1024 * 1024;
-    if (file.size <= maxSize && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+    if (
+      file.size <= maxSize &&
+      (file.type === 'image/jpeg' || file.type === 'image/png')
+    ) {
       setSelectedFile(file);
       setErMessage('');
     } else {
@@ -89,13 +95,13 @@ const AddPetMoreInfoSell = (props) => {
             <DesktopContainer>
               <LeftContainer>
                 <SexContainer className="moreInfoNotices">
-                  <p>The Sex</p>
+                  <p>Стать</p>
                   <SexList>
                     <Field
                       type="radio"
                       name="sex"
                       id="female"
-                      value="female"
+                      value="Ж"
                       className={`${
                         touched.sex && errors.sex ? 'is-invalid' : ''
                       }`}
@@ -104,14 +110,14 @@ const AddPetMoreInfoSell = (props) => {
                       <IconFemale className="iconFemale">
                         <use href={sprite + '#iconFemale'} />
                       </IconFemale>
-                      Female
+                      Ж
                     </label>
 
                     <Field
                       type="radio"
                       name="sex"
                       id="male"
-                      value="male"
+                      value="Ч"
                       className={`${
                         touched.sex && errors.sex ? 'is-invalid' : ''
                       }`}
@@ -120,14 +126,14 @@ const AddPetMoreInfoSell = (props) => {
                       <IconMale className="iconMale">
                         <use href={sprite + '#iconMale'} />
                       </IconMale>
-                      Male
+                      Ч
                     </label>
                     <ErrorMessage name="sex" component={ErrorSex} />
                   </SexList>
                 </SexContainer>
 
                 <AvatarContainer className="moreInfoNotices">
-                  <p>Choose pet image:</p>
+                  <p>Виберіть фото улюбленця:</p>
 
                   <LabelInputFile
                     className={
@@ -167,24 +173,24 @@ const AddPetMoreInfoSell = (props) => {
               {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
               <InputContainer>
                 <label>
-                  Location
+                  Місто
                   <Field
                     className={`${
                       touched.location && errors.location ? 'is-invalid' : ''
                     }`}
                     type="text"
                     name="location"
-                    placeholder="Type of location"
+                    placeholder="Вкажіть місто"
                   />
                   <ErrorMessage name="location" component={ErrorMoreInfoText} />
                 </label>
 
                 <label>
-                  Price
+                  Ціна(грн)
                   <Field
                     type="text"
                     name="price"
-                    placeholder="Type of price"
+                    placeholder="Вкажіть ціну"
                     className={`${
                       touched.price && errors.price ? 'is-invalid' : ''
                     }`}
@@ -193,7 +199,7 @@ const AddPetMoreInfoSell = (props) => {
                 </label>
 
                 <label>
-                  Comments
+                  Коментар
                   <Field
                     className={
                       'moreInfoSell' +
@@ -204,7 +210,7 @@ const AddPetMoreInfoSell = (props) => {
                     as="textarea"
                     type="text"
                     name="comments"
-                    placeholder="Type of pet"
+                    placeholder="Введіть коментар"
                   />
                   <ErrorMessage
                     name="comments"
@@ -216,7 +222,7 @@ const AddPetMoreInfoSell = (props) => {
 
             <ButtonContainer>
               <ButtonNextBack className="buttonNext" type="submit">
-                Done
+                Готово
                 <IconPaw>
                   <use href={sprite + '#iconPaw'}></use>
                 </IconPaw>
@@ -230,7 +236,7 @@ const AddPetMoreInfoSell = (props) => {
                 <IconArrow>
                   <use href={sprite + '#iconArrowLeft'}></use>
                 </IconArrow>
-                Back
+                Назад
               </ButtonNextBack>
             </ButtonContainer>
           </InputList>

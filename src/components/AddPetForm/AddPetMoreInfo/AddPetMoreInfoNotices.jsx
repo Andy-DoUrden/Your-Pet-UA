@@ -30,15 +30,18 @@ import {
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
-  sex: string().required('Select a sex'),
+  sex: string().required('Вкажіть стать'),
   location: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Location must be at least 2 characters')
-    .required('Enter a location'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Використовуйте тільки українські літери',
+    )
+    .min(2, 'Назва міста має містити від 2 символів')
+    .required('Вкажіть місто'),
   comments: string()
-    .min(2, 'Comments must be at least 2 characters')
-    .max(120, 'Comments must not exceed 120 characters')
-    .required('Enter a comment'),
+    .min(2, 'Коментар повинен містити від 2 символів')
+    .max(120, 'Коментар повинен містити до 120 символів')
+    .required('Введіть коментар'),
 });
 
 const AddPetMoreInfoNotices = (props) => {
@@ -56,7 +59,10 @@ const AddPetMoreInfoNotices = (props) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const maxSize = 3 * 1024 * 1024;
-    if (file.size <= maxSize && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+    if (
+      file.size <= maxSize &&
+      (file.type === 'image/jpeg' || file.type === 'image/png')
+    ) {
       setSelectedFile(file);
       setErMessage('');
     } else {
@@ -84,13 +90,13 @@ const AddPetMoreInfoNotices = (props) => {
             <DesktopContainer>
               <LeftContainer>
                 <SexContainer className="moreInfoNotices">
-                  <p>The Sex</p>
+                  <p>Стать</p>
                   <SexList>
                     <Field
                       type="radio"
                       name="sex"
                       id="female"
-                      value="female"
+                      value="Ж"
                       className={`${
                         touched.sex && errors.sex ? 'is-invalid' : ''
                       }`}
@@ -99,14 +105,14 @@ const AddPetMoreInfoNotices = (props) => {
                       <IconFemale className="iconFemale">
                         <use href={sprite + '#iconFemale'} />
                       </IconFemale>
-                      Female
+                      Ж
                     </label>
 
                     <Field
                       type="radio"
                       name="sex"
                       id="male"
-                      value="male"
+                      value="Ч"
                       className={`${
                         touched.sex && errors.sex ? 'is-invalid' : ''
                       }`}
@@ -115,14 +121,14 @@ const AddPetMoreInfoNotices = (props) => {
                       <IconMale className="iconMale">
                         <use href={sprite + '#iconMale'} />
                       </IconMale>
-                      Male
+                      Ч
                     </label>
                     <ErrorMessage name="sex" component={ErrorSex} />
                   </SexList>
                 </SexContainer>
 
                 <AvatarContainer className="moreInfoNotices">
-                  <p>Choose pet image:</p>
+                  <p>Виберіть фото улюбленця:</p>
                   <LabelInputFile
                     className={
                       erMessage !== '' || (formSubmitted && !selectedFile)
@@ -162,7 +168,7 @@ const AddPetMoreInfoNotices = (props) => {
 
               <InputContainer>
                 <label>
-                  Location
+                  Місто
                   <Field
                     className={`${
                       touched.location && errors.location ? 'is-invalid' : ''
@@ -175,7 +181,7 @@ const AddPetMoreInfoNotices = (props) => {
                 </label>
 
                 <label>
-                  Comments
+                  Коментар
                   <Field
                     type="text"
                     as="textarea"
@@ -198,7 +204,7 @@ const AddPetMoreInfoNotices = (props) => {
 
             <ButtonContainer>
               <ButtonNextBack className="buttonNext" type="submit">
-                Done
+                Готово
                 <IconPaw>
                   <use href={sprite + '#iconPaw'}></use>
                 </IconPaw>
@@ -212,7 +218,7 @@ const AddPetMoreInfoNotices = (props) => {
                 <IconArrow>
                   <use href={sprite + '#iconArrowLeft'}></use>
                 </IconArrow>
-                Back
+                Назад
               </ButtonNextBack>
             </ButtonContainer>
           </InputList>

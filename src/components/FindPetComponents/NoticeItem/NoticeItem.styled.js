@@ -8,7 +8,7 @@ const ItemContainer = styled.li`
   display: flex;
   flex-direction: column;
 
-  border-radius: 0px 0px 40px 40px;
+  border-radius: 20px 20px 40px 40px;
   background: #fff;
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
 

@@ -40,10 +40,10 @@ const AddPetChooseOption = (props) => {
       <Form>
         <OptionList>
           <Input type="radio" name="category" id="your-pet" value="your-pet" />
-          <label htmlFor="your-pet">your pet</label>
+          <label htmlFor="your-pet">ваш улюбленець</label>
 
           <Input type="radio" name="category" id="sell" value="sell" />
-          <label htmlFor="sell">sell</label>
+          <label htmlFor="sell">продаж</label>
 
           <Input
             type="radio"
@@ -51,7 +51,7 @@ const AddPetChooseOption = (props) => {
             id="lost-found"
             value="lost-found"
           />
-          <label htmlFor="lost-found">lost/found</label>
+          <label htmlFor="lost-found">{'загубив(ла)/знайшов(ла)'}</label>
 
           <Input
             type="radio"
@@ -59,14 +59,14 @@ const AddPetChooseOption = (props) => {
             id="in-good-hands"
             value="in-good-hands"
           />
-          <label htmlFor="in-good-hands">in good hands</label>
+          <label htmlFor="in-good-hands">в хороші руки</label>
 
           <ErrorMessage name="category" component={ErrorCategoryText} />
         </OptionList>
 
         <ButtonContainer>
           <ButtonNextBack className="buttonNext" type="submit">
-            Next
+            Далі
             <IconPaw>
               <use href={sprite + '#iconPaw'}></use>
             </IconPaw>
@@ -80,7 +80,7 @@ const AddPetChooseOption = (props) => {
             <IconArrow>
               <use href={sprite + '#iconArrowLeft'}></use>
             </IconArrow>
-            Сancel
+            Відміна
           </ButtonNextBack>
         </ButtonContainer>
       </Form>

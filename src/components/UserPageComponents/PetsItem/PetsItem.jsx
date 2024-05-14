@@ -23,25 +23,24 @@ function PetsItem({ pets }) {
       <PetsCardImg src={pets.avatarURL} alt="user-pet" />
       <ul>
         <PetsCardText>
-          <h3>Name: </h3>
+          <h3>${"Ім'я:"} </h3>
           <p>{pets.name}</p>
         </PetsCardText>
         <PetsCardText>
-          <h3>Date of birth: </h3>
+          <h3>Дата народження: </h3>
           <p>{pets.date}</p>
         </PetsCardText>
         <PetsCardText>
-          <h3>Type: </h3>
+          <h3>Порода: </h3>
           <p>{pets.type}</p>
         </PetsCardText>
         <PetsCardText>
-          <h3> Comments: </h3>
+          <h3>Коментар: </h3>
           <p>{pets.comments}</p>
         </PetsCardText>
       </ul>
     </PetsItemli>
   );
-
 }
 
 export default PetsItem;

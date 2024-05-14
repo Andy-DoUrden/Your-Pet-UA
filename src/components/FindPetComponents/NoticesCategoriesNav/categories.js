@@ -14,7 +14,7 @@ const publicCategories = [
   {
     id: nanoid(),
     to: '/notices/in-good-hands',
-    text: 'в холоші руки',
+    text: 'в хороші руки',
   },
 ];
 

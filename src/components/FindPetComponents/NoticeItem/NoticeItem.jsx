@@ -24,6 +24,7 @@ import FindPetModal from '../FindPetModal/FindPetModal.jsx';
 import AttentionModalWrapper from './AttentionWrapper/AttentionModalWrapper.jsx';
 import DeleteModalWrapper from './DeleteWrapper/DeleteModalWrapper.jsx';
 import LearnMoreModalWrapper from './LearnMoreModalWrapper/LearnMoreModalWrapper.jsx';
+import { categoryTrans } from '../../../helpers/translations.js';
 
 const NoticeItem = ({
   id,
@@ -106,7 +107,7 @@ const NoticeItem = ({
     <ItemContainer key={id}>
       <TopPart>
         <ItemImg src={avatarURL} />
-        <ItemCategory>{category}</ItemCategory>
+        <ItemCategory>{categoryTrans[category]}</ItemCategory>
 
         <ItemFavoriteBtn type="submit" onClick={handleFavoriteClick}>
           <FavoriteIcon isFavorite={isFavorite}>

@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import ReactPaginate from "react-paginate";
-import { useMediaQuery } from "react-responsive";
-import { PaginationContainer } from "./Pagination.styled";
+import PropTypes from 'prop-types';
+import ReactPaginate from 'react-paginate';
+import { useMediaQuery } from 'react-responsive';
+import { PaginationContainer } from './Pagination.styled';
 
 export const Pagination = ({
   onPageChange,
@@ -10,7 +10,7 @@ export const Pagination = ({
   perPage,
   variant,
 }) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
 
   const marginPages = isMobile ? 1 : 2;
 
@@ -29,7 +29,7 @@ export const Pagination = ({
   return (
     <PaginationContainer $variant={variant}>
       <ReactPaginate
-        breakLabel={"..."}
+        breakLabel={'...'}
         onPageChange={handlePageClick}
         pageCount={pageCount}
         previousLabel="←"
@@ -39,8 +39,12 @@ export const Pagination = ({
         renderOnZeroPageCount={null}
         activeClassName="active"
         activeLinkClassName="active"
-        previousClassName={currentPage === 0 ? "previous disabled" : "previous"}
-        nextClassName={currentPage === pageCount ? "next disabled" : "next"}
+        previousClassName={
+          currentPage === 0 ? 'попередній відсутній' : 'попередній'
+        }
+        nextClassName={
+          currentPage === pageCount ? 'наступний відсутній' : 'наступний'
+        }
       />
     </PaginationContainer>
   );

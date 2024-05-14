@@ -4,6 +4,7 @@ export const RTKQueryApi = createApi({
   reducerPath: 'RTKQueryApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `https://your-pet-ua-back.onrender.com/api`,
+    // baseUrl: `http://localhost:3000/api`,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {

@@ -16,10 +16,10 @@ export const PetsData = () => {
   return (
     <div>
       <ConteinerTitle>
-        <PetsDataTitle>My pets:</PetsDataTitle>
+        <PetsDataTitle>Мої улубленці:</PetsDataTitle>
         <BtnAddPet to={'/add-pet'} state={{ from: '/user' }}>
           <div>
-            Add pet
+            Додати
             <PlussSvg>
               <use href={sprite + '#iconPlusSmall'}></use>
             </PlussSvg>

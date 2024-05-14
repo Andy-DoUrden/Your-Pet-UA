@@ -46,7 +46,7 @@ const UserData = () => {
   return (
     <>
       <UserPageItem>
-        <UserFormTitle>My information:</UserFormTitle>
+        <UserFormTitle>Мої дані:</UserFormTitle>
         <UserFormBox>
           {isUserUpdate ? (
             <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
@@ -70,15 +70,15 @@ const UserData = () => {
           {isNewUser && (
             <Modal>
               <ModalConteiner>
-                <ModalTitle>Congrats!</ModalTitle>
-                <ModalText>Youre registration is success</ModalText>
+                <ModalTitle>Вітаємо!</ModalTitle>
+                <ModalText>Реєстрація успішна</ModalText>
                 <ModalBtn
                   onClick={() => {
                     handleModalClose();
                   }}
                   type="button"
                 >
-                  Go to profile
+                  Перейти до профілю
                   <PawSvg>
                     <use href={sprite + '#iconPaw'}></use>
                   </PawSvg>

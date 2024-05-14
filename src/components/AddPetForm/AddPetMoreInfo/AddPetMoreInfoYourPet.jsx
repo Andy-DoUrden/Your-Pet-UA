@@ -23,9 +23,9 @@ import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
   comments: string()
-    .min(2, 'Comments must be at least 2 characters')
-    .max(120, 'Comments must not exceed 120 characters')
-    .required('Enter a comment'),
+    .min(2, 'Коментар повинен містити від 2 символів')
+    .max(120, 'Коментар повинен містити до 120 символів')
+    .required('Введіть коментар'),
 });
 
 const AddPetMoreInfoYourPet = (props) => {
@@ -36,12 +36,17 @@ const AddPetMoreInfoYourPet = (props) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const maxSize = 3 * 1024 * 1024;
-    if (file.size <= maxSize && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+    if (
+      file.size <= maxSize &&
+      (file.type === 'image/jpeg' || file.type === 'image/png')
+    ) {
       setSelectedFile(file);
       setErMessage('');
     } else {
       setSelectedFile(null);
-      setErMessage('Please select a JPEG or PNG file within 3MB size limit');
+      setErMessage(
+        'Будь ласка, виберіть файл JPEG(.JPG) або .PNG у межах 3 Мб',
+      );
     }
   };
 
@@ -63,7 +68,7 @@ const AddPetMoreInfoYourPet = (props) => {
         <Form>
           <InputList>
             <AvatarContainer>
-              <p>Choose pet image:</p>
+              <p>Виберіть фото улюбленця:</p>
               <LabelInputFile
                 className={
                   erMessage !== '' || (formSubmitted && !selectedFile)
@@ -101,12 +106,12 @@ const AddPetMoreInfoYourPet = (props) => {
             {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
 
             <CommentLabel>
-              Comments
+              Коментар
               <Field
                 as="textarea"
                 type="text"
                 name="comments"
-                placeholder="Type of pet"
+                placeholder="Введіть коментар"
                 className={`${
                   touched.comments && errors.comments ? 'is-invalid' : ''
                 }`}
@@ -115,7 +120,7 @@ const AddPetMoreInfoYourPet = (props) => {
             </CommentLabel>
             <ButtonContainer>
               <ButtonNextBack className="buttonNext" type="submit">
-                Done
+                Готово
                 <IconPaw>
                   <use href={sprite + '#iconPaw'}></use>
                 </IconPaw>
@@ -129,7 +134,7 @@ const AddPetMoreInfoYourPet = (props) => {
                 <IconArrow>
                   <use href={sprite + '#iconArrowLeft'}></use>
                 </IconArrow>
-                Back
+                Назад
               </ButtonNextBack>
             </ButtonContainer>
           </InputList>

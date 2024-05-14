@@ -7,7 +7,7 @@ export const NavContainer = styled.div`
   gap: 8px;
   max-width: 205px;
 
-  height: 121px;
+  height: 180px;
 
   margin-bottom: 42px;
 
@@ -16,7 +16,7 @@ export const NavContainer = styled.div`
     margin-bottom: 40px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 540px;
+    max-width: 800px;
     height: 35px;
     flex-direction: row;
     gap: 12px;
@@ -62,7 +62,7 @@ export const StyledLink = styled(Link)`
   background-color: ${(props) => props.active && 'var(--clr-brand-blue)'};
   border-radius: 40px;
   transition: 300ms;
-  
+
   &:hover {
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);

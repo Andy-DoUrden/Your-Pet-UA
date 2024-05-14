@@ -22,7 +22,7 @@ import {
   InputConteiner,
   ErrorMessage,
 } from './UserForm.styled';
-import Loader from "../../../ui/Loader/Loader";
+import Loader from '../../../ui/Loader/Loader';
 import { useSelector } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
@@ -35,10 +35,11 @@ import {
 import { useNavigate } from 'react-router-dom';
 import sprite from '.././../../ui/Icons/sprite.svg';
 import { object, string, date } from 'yup';
-import {selectToken} from '../../../redux/auth/selectors'
+import { selectToken } from '../../../redux/auth/selectors';
+import { Notify } from 'notiflix';
 
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
-  const Token = useSelector(selectToken)
+  const Token = useSelector(selectToken);
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetMeAndPetsQuery();
@@ -77,13 +78,15 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    updateUser(formData).unwrap();
+    updateUser(userPhoto ? formData : data)
+      .unwrap()
+      .catch((err) => Notify.failure(err.data.message));
     setIsUserUpdate((state) => !state);
   };
   const hendleClick = () => {
     setIsShowModal(true);
   };
-  const hendleLogout =  async() => {
+  const hendleLogout = async () => {
     await LogOut(Token).unwrap();
     navigate('/login');
     localStorage.removeItem('persist:auth');
@@ -102,27 +105,33 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
 
   const Schema = object({
     name: string()
-      .min(3, 'Name Too Short!')
-      .max(16, 'Too Long!')
-      .required('Required'),
+      .min(3, "Ім'я надто коротке!")
+      .max(16, "Ім'я надто довге!")
+      .required('Поле потрібно заповнити'),
     date: date()
-      .required('Enter a date of birth')
-      .max(new Date(), 'Date cannot be in the future'),
+      .required('Введіть дату народження')
+      .max(new Date(), 'Дата не може бути у майбутньому'),
     email: string()
-      .email('Invalid email format')
+      .email('Не правильний формат імейлу')
       .matches(
         /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-        'Invalid Email format',
+        'Не правильний формат імейлу',
       )
-      .required('Email is required'),
-    city: string().min(3, 'City Too Short!').required('Required'),
-    phone: string().matches(/^\+\d{12}$/,'Phone must have + and length 12').min(13, 'Phone Too Short!').max(13,"Phone Too long").required('Required'), 
+      .required('Імейл потрібно ввести'),
+    city: string()
+      .min(3, 'Назва міста надто коротке!')
+      .required('Поле потрібно заповнити'),
+    phone: string()
+      .matches(/^\+\d{12}$/, "Телефон має містити '+' та довжину 12")
+      .min(13, 'Номер надто короткий!')
+      .max(13, 'Номер надто довгий')
+      .required('Поле потрібно заповнити'),
   });
 
   return (
     <>
       {isLoading ? (
-        <Loader/>
+        <Loader />
       ) : (
         <Formik
           initialValues={{
@@ -147,12 +156,12 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 <UserFormList>
                   <UserFormItem>
                     <InputConteiner>
-                      <UserFormLabel htmlFor={`name`}>Name:</UserFormLabel>
+                      <UserFormLabel htmlFor={`name`}>{"Ім'я:"}</UserFormLabel>
                       <UserFormInput
                         type="text"
                         name="name"
                         id="name"
-                        placeholder={'Anna'}
+                        placeholder={'Вікторія'}
                         disabled={isUserUpdate}
                       />
                     </InputConteiner>
@@ -162,11 +171,11 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   </UserFormItem>
                   <UserFormItem>
                     <InputConteiner>
-                      <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
+                      <UserFormLabel htmlFor={`email`}>Імейл:</UserFormLabel>
                       <UserFormInput
                         name="email"
                         id="email"
-                        placeholder={'anna00@gmail.com|'}
+                        placeholder={'vikky2001@gmail.com|'}
                         disabled={isUserUpdate}
                         className={`${
                           touched.name && errors.name ? 'is-invalid' : ''
@@ -179,9 +188,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   </UserFormItem>
                   <UserFormItem>
                     <InputConteiner>
-                      <UserFormLabel htmlFor={`birthDate`}>
-                        Birthday:
-                      </UserFormLabel>
+                      <UserFormLabel htmlFor={`birthDate`}>ДН:</UserFormLabel>
                       <UserFormInput
                         type="date"
                         name="date"
@@ -196,7 +203,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   </UserFormItem>
                   <UserFormItem>
                     <InputConteiner>
-                      <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
+                      <UserFormLabel htmlFor={`phone`}>Телефон:</UserFormLabel>
                       <UserFormInput
                         type="phone"
                         name="phone"
@@ -212,12 +219,12 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   </UserFormItem>
                   <UserFormItem>
                     <InputConteiner>
-                      <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
+                      <UserFormLabel htmlFor={`city`}>Місто:</UserFormLabel>
                       <UserFormInput
                         type="text"
                         name="city"
                         id="city"
-                        placeholder={'Kyiv'}
+                        placeholder={'Київ'}
                         disabled={isUserUpdate}
                       />
                     </InputConteiner>
@@ -231,10 +238,10 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     <UserFormSvg>
                       <use href={sprite + '#iconLogout'}></use>
                     </UserFormSvg>
-                    <BtnText>Log Out</BtnText>
+                    <BtnText>Вийти</BtnText>
                   </UserFormBtn>
                 ) : (
-                    <Btn type="submit">Save</Btn>
+                  <Btn type="submit">Зберегти</Btn>
                 )}
               </UserFormInfo>
             </UserFormBody>
@@ -244,13 +251,13 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
       {isShowModal ? (
         <Modal isOpen={setIsShowModal}>
           <ModalConteiner>
-            <ModalTitle>Already leaving?</ModalTitle>
+            <ModalTitle>Бажаєте вийти?</ModalTitle>
             <ConteinerBtn>
               <ButtonCansel onClick={() => setIsShowModal(false)}>
-                Cancel
+                Ні
               </ButtonCansel>
               <ButtonLogout onClick={() => hendleLogout()}>
-                Yes
+                Так
                 <YesSvg>
                   <use href={sprite + '#iconLogout'}></use>
                 </YesSvg>

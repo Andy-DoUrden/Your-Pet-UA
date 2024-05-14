@@ -14,18 +14,24 @@ import {
 
 const schema = object({
   name: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Name must be at least 2 characters')
-    .max(16, 'Name must be at most 16 characters')
-    .required('Enter a name pet'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Допустимі тільки Українські символи',
+    )
+    .min(2, "Ім'я повинне містити від 2 символів")
+    .max(16, "Ім'я повинне містити до 16 символів")
+    .required("Введіть ім'я"),
   date: date()
-    .required('Enter a date of birth')
-    .max(new Date(), 'Date cannot be in the future'),
+    .required('Введіть дату народження')
+    .max(new Date(), 'Дата народження не може бути у майбутньому'),
   type: string()
-    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
-    .min(2, 'Type must be at least 2 characters')
-    .max(16, 'Type must be at most 16 characters')
-    .required('Enter a type of pet'),
+    .matches(
+      /^([А-ЩЬЮЯҐЄIЇІІа-щьюяґєіїьі]+\s?){1,}$/iu,
+      'Допустимі тільки Українські символи',
+    )
+    .min(2, 'Порода повинна містити від 2 символів')
+    .max(16, 'Порода повинна містити до 16 символів')
+    .required('Введіть породу'),
 });
 
 const AddPetPersonalDetailsYourPet = (props) => {
@@ -43,31 +49,31 @@ const AddPetPersonalDetailsYourPet = (props) => {
         <Form>
           <InputList>
             <label>
-              Pet’s name
+              {"Ім'я улюбленця"}
               <Field
                 type="text"
                 name="name"
-                placeholder="Type name pet"
+                placeholder="Введіть ім'я"
                 className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of birth
+              Дата народження
               <Field
                 type="date"
                 name="date"
-                placeholder="Type date of birth"
+                placeholder="Кажіть дату народження"
                 className={`${touched.date && errors.date ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="date" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Type
+              Порода
               <Field
                 type="text"
                 name="type"
-                placeholder="Type of pet"
+                placeholder="Вкажіть породу"
                 className={`${touched.type && errors.type ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
@@ -76,7 +82,7 @@ const AddPetPersonalDetailsYourPet = (props) => {
 
           <ButtonContainer>
             <ButtonNextBack className="buttonNext" type="submit">
-              Next
+              Далі
               <IconPaw>
                 <use href={sprite + '#iconPaw'}></use>
               </IconPaw>
@@ -89,7 +95,7 @@ const AddPetPersonalDetailsYourPet = (props) => {
               <IconArrow>
                 <use href={sprite + '#iconArrowLeft'}></use>
               </IconArrow>
-              Back
+              Назад
             </ButtonNextBack>
           </ButtonContainer>
         </Form>
