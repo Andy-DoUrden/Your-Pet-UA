@@ -6,7 +6,7 @@ function NoMatchesFound() {
       <NoNoticesFoundIcon>
         <use href={sprite + '#iconPaw'} />
       </NoNoticesFoundIcon>{' '}
-      No Matches found{' '}
+      Нічого не знайдено{' '}
       <NoNoticesFoundIcon>
         <use href={sprite + '#iconPaw'} />
       </NoNoticesFoundIcon>
