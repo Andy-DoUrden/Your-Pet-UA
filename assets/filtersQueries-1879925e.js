@@ -1,10 +1,10 @@
-import{t as r,L as E,a as w,j as e,k as N,z as B,r as c,h as o,b as D}from"./index-fa4dfc2d.js";import{F as T,A as G}from"./AttentionModalWrapper-d450f11f.js";const Q=r.div`
+import{v as r,L as E,a as w,j as e,k as N,A as B,r as c,h as o,b as D}from"./index-80a5c5ac.js";import{F as T,A as G}from"./AttentionModalWrapper-fe2811d4.js";const Q=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
   max-width: 205px;
 
-  height: 121px;
+  height: 180px;
 
   margin-bottom: 42px;
 
@@ -13,7 +13,7 @@ import{t as r,L as E,a as w,j as e,k as N,z as B,r as c,h as o,b as D}from"./ind
     margin-bottom: 40px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 540px;
+    max-width: 800px;
     height: 35px;
     flex-direction: row;
     gap: 12px;
@@ -54,12 +54,12 @@ import{t as r,L as E,a as w,j as e,k as N,z as B,r as c,h as o,b as D}from"./ind
   background-color: ${n=>n.active&&"var(--clr-brand-blue)"};
   border-radius: 40px;
   transition: 300ms;
-  
+
   &:hover {
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
   }
-`,W=({id:n,to:t,text:i,search:a})=>{const s=w();return e.jsx(U,{children:e.jsx(H,{to:{pathname:t,search:a},active:s.pathname===t?"true":void 0,children:i})},n)};let u=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const _=[{id:u(),to:"/notices/sell",text:"продаж"},{id:u(),to:"/notices/lost-found",text:"загубив(ла)/знайшов(ла)"},{id:u(),to:"/notices/in-good-hands",text:"в холоші руки"}],q=[{id:u(),to:"/notices/favorite",text:"улюблені"},{id:u(),to:"/notices/my-ads",text:"мої"}],J={publicCategories:_,userCategories:q},{publicCategories:K,userCategories:X}=J,F=(n,t)=>n.map(({id:i,to:a,text:s})=>e.jsx(W,{to:a,text:s,search:t},i)),ce=()=>{const{search:n}=w(),t=N(B);return e.jsxs(Q,{children:[e.jsx(k,{children:F(K,n)}),t&&e.jsx(k,{children:F(X,n)})]})},Y=r.button`
+`,W=({id:n,to:t,text:i,search:a})=>{const s=w();return e.jsx(U,{children:e.jsx(H,{to:{pathname:t,search:a},active:s.pathname===t?"true":void 0,children:i})},n)};let u=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const _=[{id:u(),to:"/notices/sell",text:"продаж"},{id:u(),to:"/notices/lost-found",text:"загубив(ла)/знайшов(ла)"},{id:u(),to:"/notices/in-good-hands",text:"в хороші руки"}],q=[{id:u(),to:"/notices/favorite",text:"улюблені"},{id:u(),to:"/notices/my-ads",text:"мої"}],J={publicCategories:_,userCategories:q},{publicCategories:K,userCategories:X}=J,F=(n,t)=>n.map(({id:i,to:a,text:s})=>e.jsx(W,{to:a,text:s,search:t},i)),ce=()=>{const{search:n}=w(),t=N(B);return e.jsxs(Q,{children:[e.jsx(k,{children:F(K,n)}),t&&e.jsx(k,{children:F(X,n)})]})},Y=r.button`
   position: relative;
   width: 40px;
   height: 40px;
