@@ -29,20 +29,20 @@ const Login = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Invalid email format')
+      .email('Не правильний формат імейлу')
       .matches(
         /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-        'Invalid Email format',
+        'Не правильний формат імейлу',
       )
-      .required('Email is required'),
+      .required("Імейл обов'язковий"),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters long')
-      .max(16, 'Password can be at most 16 characters long')
+      .min(6, 'Пароль має містити мінімум 6 символів')
+      .max(16, 'Пароль має містити максимум 16 символів')
       .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/,
-        'Password must contain only English letters at least one digit, one lowercase letter, and one uppercase letter',
+        'Пароль має містити лише англійські літери, принаймні одну цифру, одну малу та одну велику літеру',
       )
-      .required('Password is required'),
+      .required("Пароль обов'язковий"),
   });
 
   const formik = useFormik({
@@ -61,13 +61,13 @@ const Login = () => {
       ).then((action) => {
         if (login.fulfilled.match(action)) {
           navigate('/user');
-          Notify.success('Login successful');
+          Notify.success('Логін успішний');
         } else {
           const error = action.payload;
           if (error && error.response && error.response.status === 401) {
-            Notify.failure(error.message || 'Unauthorized user');
+            Notify.failure(error.message || 'Неавторизований користувач');
           } else {
-            Notify.failure('An error occurred during login');
+            Notify.failure('Виникла помилка під час логіну');
           }
         }
       });

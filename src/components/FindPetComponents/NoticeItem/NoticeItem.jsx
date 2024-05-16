@@ -46,8 +46,6 @@ const NoticeItem = ({
 
   const [deleteNotice] = useDeleteNoticeMutation();
 
-  const ageText = age % 2 ? 'year' : 'years';
-
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   const toggleModal = () => {
@@ -134,7 +132,7 @@ const NoticeItem = ({
             <ItemDataIcon>
               <use href={sprite + '#iconClock'} />
             </ItemDataIcon>
-            {age} {ageText}
+            {age} (вік)
           </ItemData>
           <ItemData>
             <ItemDataIcon>
