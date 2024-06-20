@@ -23,7 +23,7 @@ function PetsItem({ pets }) {
       <PetsCardImg src={pets.avatarURL} alt="user-pet" />
       <ul>
         <PetsCardText>
-          <h3>${"Ім'я:"} </h3>
+          <h3>{"Ім'я:"} </h3>
           <p>{pets.name}</p>
         </PetsCardText>
         <PetsCardText>

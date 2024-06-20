@@ -73,7 +73,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <Field
                 type="text"
                 name="name"
-                placeholder="Type name pet"
+                placeholder="Вкажіть ім'я"
                 className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
               />
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />

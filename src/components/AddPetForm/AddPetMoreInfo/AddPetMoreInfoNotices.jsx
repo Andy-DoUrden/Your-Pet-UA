@@ -67,7 +67,7 @@ const AddPetMoreInfoNotices = (props) => {
       setErMessage('');
     } else {
       setSelectedFile(null);
-      setErMessage('Please select a JPEG or PNG file within 3MB size limit');
+      setErMessage('Будь ласка виберіть JPEG або PNG файл до 3 мегабайт');
     }
   };
 
@@ -175,7 +175,7 @@ const AddPetMoreInfoNotices = (props) => {
                     }`}
                     type="text"
                     name="location"
-                    placeholder="Type of location"
+                    placeholder="Вкажіть місто"
                   />
                   <ErrorMessage name="location" component={ErrorMoreInfoText} />
                 </label>
@@ -186,7 +186,7 @@ const AddPetMoreInfoNotices = (props) => {
                     type="text"
                     as="textarea"
                     name="comments"
-                    placeholder="Type of pet"
+                    placeholder="Вкажіть коментар"
                     className={
                       'moreInfoNotices' +
                       `${
